@@ -55,11 +55,12 @@ BAR_DUR = 0.6
 
 
 def short(d):
-    return datetime.date.fromisoformat(d).strftime("%b %-d")
+    day = datetime.date.fromisoformat(d)
+    return f"{day.strftime('%b')} {day.day}"
 
 
 def span(s):
-    return f'{short(s["start"])} – {short(s["end"])}' if s["length"] else "—"
+    return f'{short(s["start"])} {chr(8211)} {short(s["end"])}' if s["length"] else chr(8212)
 
 
 data = json.load(open(SRC))

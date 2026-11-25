@@ -28,8 +28,9 @@ jobs:
           python scripts/make_info_card.py
           python scripts/render_heatmap_svg.py
           python scripts/render_monthly_stats.py
+          python scripts/render_readme_cards.py
       - name: Commit refreshed graphics and contribution data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: refresh profile art [skip ci]"
-          file_pattern: "data/contributions.json vijay-ascii.svg info-card.svg contrib-heatmap.svg monthly-stats.svg"
+          file_pattern: "data/contributions.json vijay-ascii.svg info-card.svg contrib-heatmap.svg monthly-stats.svg cards/*.svg"
