@@ -177,7 +177,7 @@ def hero():
 <text class="r" {d(0.15)} x="44" y="190" font-family="{SERIF}" font-size="116" letter-spacing="-2.5" fill="{INK}">Vijay</text>
 <text class="r" {d(0.3)} x="44" y="290" font-family="{SERIF}" font-style="italic" font-size="116" letter-spacing="-2.5" fill="url(#shine)">Anand</text>
 <g class="r" {d(0.55)}>
-  {text_lines(48, 338, ["I build across Linux, networking, cloud", "and DevOps, grounded in ECE."], 27, f'font-family="{SANS}" font-size="18" fill="{INK_SOFT}"')}
+  {text_lines(48, 338, ["From circuits to code, I follow the", "questions that make things work."], 27, f'font-family="{SANS}" font-size="18" fill="{INK_SOFT}"')}
 </g>
 <g class="f" {d(0.8)}>
   <text x="48" y="396" font-family="{MONO}" font-size="13" fill="{INK}">github.com/vijaydevx</text>
@@ -188,7 +188,7 @@ def hero():
 </g>
 """
     write("hero.svg", svg(W, h, body, ["serif", "serif-i", "sans", "mono"],
-                          "Vijay Anand. ECE student working across Linux, networking, cloud and DevOps."))
+                          "Vijay Anand. From circuits to code, following the questions that make things work."))
 
 
 # ---- 2 · world tiles ----------------------------------------------------------
@@ -401,8 +401,8 @@ if __name__ == "__main__":
     hero()
     tile("build", "BUILD", TECH, "#ffffff", "6", "projects",
          "AI, campus platforms, robotics and C programming.", 3.1, 0)
-    tile("brand", "SYSTEMS", STUDIO, "#ffffff", "RHCSA", "",
-         "Linux, networking, cloud and DevOps.", 3.35, 1)
+    tile("brand", "SYSTEMS", STUDIO, "#ffffff", "Curiosity", "",
+         "Learning the systems behind what we build.", 3.35, 1)
     tile("learn", "LEARN", LEARN, INK, "ECE", "student",
          "Electronics and computer engineering, applied through projects.", 3.6, 2)
     activity(data)
