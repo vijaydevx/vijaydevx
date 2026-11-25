@@ -1,0 +1,35 @@
+name: Update profile art
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  profile-art:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install profile dependencies
+        run: python -m pip install -r scripts/requirements.txt
+      - name: Fetch Vijay's public contribution calendar
+        run: python scripts/fetch_contributions.py
+      - name: Render profile graphics
+        run: |
+          python scripts/make_ascii_svg.py
+          python scripts/make_info_card.py
+          python scripts/render_heatmap_svg.py
+          python scripts/render_monthly_stats.py
+      - name: Commit refreshed graphics and contribution data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: refresh profile art [skip ci]"
+          file_pattern: "data/contributions.json vijay-ascii.svg info-card.svg contrib-heatmap.svg monthly-stats.svg"
